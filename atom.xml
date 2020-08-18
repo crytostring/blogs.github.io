@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="https://crytostring.github.io/blogs.github.io/atom.xml" rel="self"/>
+  <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/atom.xml" rel="self"/>
   
-  <link href="https://crytostring.github.io/blogs.github.io/"/>
+  <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/"/>
   <updated>2020-08-18T13:52:47.905Z</updated>
-  <id>https://crytostring.github.io/blogs.github.io/</id>
+  <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://crytostring.github.io/blogs.github.io/2020/08/18/hello-world/"/>
-    <id>https://crytostring.github.io/blogs.github.io/2020/08/18/hello-world/</id>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/hello-world/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/hello-world/</id>
     <published>2020-08-18T13:52:47.905Z</published>
     <updated>2020-08-18T13:52:47.905Z</updated>
     
