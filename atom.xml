@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Kings</title>
   
   
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>钟晓川</name>
     
   </author>
   
