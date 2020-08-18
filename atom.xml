@@ -6,7 +6,7 @@
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/atom.xml" rel="self"/>
   
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/"/>
-  <updated>2020-08-18T13:52:47.905Z</updated>
+  <updated>2020-08-18T15:05:03.841Z</updated>
   <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>alpine使用的避坑指南</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/</id>
+    <published>2020-08-18T14:53:57.000Z</published>
+    <updated>2020-08-18T15:05:03.841Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;alpine使用的避坑指南&quot;&gt;&lt;a href=&quot;#alpine使用的避坑指南&quot; class=&quot;headerlink&quot; title=&quot;alpine使用的避坑指南&quot;&gt;&lt;/a&gt;alpine使用的避坑指南&lt;/h1&gt;&lt;p&gt;alpine，是一个重量仅为5</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
