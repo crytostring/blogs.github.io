@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    384
+                    487
                 </div>
                 
 
@@ -483,19 +483,37 @@
 <h3 id="vagrant其他常用命令"><a href="#vagrant其他常用命令" class="headerlink" title="vagrant其他常用命令"></a>vagrant其他常用命令</h3><pre class=" language-bash"><code class="language-bash">vagrant <span class="token function">ssh</span> <span class="token comment" spellcheck="true"># 自动使用vagrant用户连接虚拟机</span>
 vagrant upload <span class="token function">source</span> <span class="token punctuation">[</span>description<span class="token punctuation">]</span> <span class="token punctuation">[</span>name<span class="token operator">|</span>id<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 上传文件</span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://www.vagrantup.com/docs/cli/init.html">https://www.vagrantup.com/docs/cli/init.html</a> Vagrant命令行</p>
+<p><a target="_blank" rel="noopener" href="https://www.vagrantup.com/docs/cli/box#box-remove">https://www.vagrantup.com/docs/cli/box#box-remove</a></p>
 <h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>默认虚拟机的IP地址不是固定IP，修改Vagrantfile文件</p>
-<pre class=" language-bash"><code class="language-bash">config.vm.network <span class="token string">"private_network"</span>, ip:<span class="token string">"192.168.58.10"</span></code></pre>
+<pre class=" language-bash"><code class="language-bash">config.vm.network <span class="token string">"private_network"</span>, ip:<span class="token string">"192.168.58.10"</span>
+
+vagrant up <span class="token comment" spellcheck="true"># 重新启动机器，然后重新vagrant连接机器</span></code></pre>
 <p>这里的ip需要在物理机下使用ipconfig命令找到</p>
+<h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><p>vagrant ssh进入系统</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/ssh/sshd config
+<span class="token comment" spellcheck="true"># 修改</span>
+PasswordAuthentication yes/no
+
+<span class="token comment" spellcheck="true"># 重启服务</span>
+$ <span class="token function">service</span> sshd restart</code></pre>
 <h3 id="vagrant-up下载box慢的解决办法"><a href="#vagrant-up下载box慢的解决办法" class="headerlink" title="vagrant up下载box慢的解决办法"></a>vagrant up下载box慢的解决办法</h3><h4 id="即在运行vagrant-up时得到其的下载路径，如："><a href="#即在运行vagrant-up时得到其的下载路径，如：" class="headerlink" title="即在运行vagrant up时得到其的下载路径，如："></a>即在运行vagrant up时得到其的下载路径，如：</h4><pre class=" language-bash"><code class="language-bash">https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box</code></pre>
 <p>然后直接在浏览器上访问该网址来下载该box</p>
 <h4 id="先查看本地安装的box："><a href="#先查看本地安装的box：" class="headerlink" title="先查看本地安装的box："></a>先查看本地安装的box：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box list</code></pre>
-<h4 id="再将得到的box文件手动添加进去："><a href="#再将得到的box文件手动添加进去：" class="headerlink" title="再将得到的box文件手动添加进去："></a>再将得到的box文件手动添加进去：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box add --name centos/7 /c/Users/Kings/Downloads/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box</code></pre>
+<h4 id="再将得到的box文件手动添加进去："><a href="#再将得到的box文件手动添加进去：" class="headerlink" title="再将得到的box文件手动添加进去："></a>再将得到的box文件手动添加进去：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box add --name centos/7 /c/Users/Kings/Downloads/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box
+
+$ vagrant box remove centos/7 $ 从box中移除指定镜像</code></pre>
 <h4 id="然后再查看本地果然多了一个新的box："><a href="#然后再查看本地果然多了一个新的box：" class="headerlink" title="然后再查看本地果然多了一个新的box："></a>然后再查看本地果然多了一个新的box：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box list
 centos/7          <span class="token punctuation">(</span>virtualbox, 0<span class="token punctuation">)</span>
 laravel/homestead <span class="token punctuation">(</span>virtualbox, 9.5.1<span class="token punctuation">)</span>
 laravel/homestead <span class="token punctuation">(</span>vmware_desktop, 9.2.0<span class="token punctuation">)</span></code></pre>
 <h4 id="然后再在相应vagrantfile对应的目录下运行vagrant-up即可运行起来了："><a href="#然后再在相应vagrantfile对应的目录下运行vagrant-up即可运行起来了：" class="headerlink" title="然后再在相应vagrantfile对应的目录下运行vagrant up即可运行起来了："></a>然后再在相应vagrantfile对应的目录下运行vagrant up即可运行起来了：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant up</code></pre>
 <h4 id="然后使用vagrant-ssh即可进入："><a href="#然后使用vagrant-ssh即可进入：" class="headerlink" title="然后使用vagrant ssh即可进入："></a>然后使用vagrant ssh即可进入：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant <span class="token function">ssh</span></code></pre>
+<h3 id="vagrant-up-启动报错-拆坑记录-之编码设置"><a href="#vagrant-up-启动报错-拆坑记录-之编码设置" class="headerlink" title="vagrant up 启动报错 拆坑记录 之编码设置"></a>vagrant up 启动报错 拆坑记录 之编码设置</h3><p>在 Vagrantfile 文件下加入</p>
+<pre class=" language-bash"><code class="language-bash">config.vm.provider <span class="token string">"virtualbox"</span> <span class="token keyword">do</span> <span class="token operator">|</span> vb <span class="token operator">|</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token comment" spellcheck="true"># Encoding.default_external = 'GBK'</span>
+  Encoding.default_external <span class="token operator">=</span> <span class="token string">'UTF-8'</span>
+end</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -746,33 +764,33 @@ laravel/homestead <span class="token punctuation">(</span>vmware_desktop, 9.2.0<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/">
+                <a href="/blogs.github.io/2020/08/19/docker-an-zhuang-redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="Vagrant安装Linux虚拟机">
+                        <img src="/blogs.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="docker安装redis">
                         
-                        <span class="card-title">Vagrant安装Linux虚拟机</span>
+                        <span class="card-title">docker安装redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vagrant安装Linux虚拟机下载装vagrantvagrant官方镜像仓库
-https://app.vagrantup.com/boxes/search
-vagrant下载
-https://www.vagrantup.com/down
+                            Docker安装Redis下载镜像$ docker pull redis:6.0.6
+创建实例并启动$ mkdir -p /data/redis/conf
+$ touch /data/redis/conf/redis.conf
+
+$ doc
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -781,12 +799,11 @@ https://www.vagrantup.com/down
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blogs.github.io/tags/Linux-Vagrant/">
-                        <span class="chip bg-color">Linux,Vagrant</span>
+                    <a href="/blogs.github.io/tags/Docker-Redis/">
+                        <span class="chip bg-color">Docker,Redis</span>
                     </a>
                     
                 </div>
@@ -1030,7 +1047,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.1k</span>&nbsp;字
+                class="white-color">2.4k</span>&nbsp;字
             
             
             

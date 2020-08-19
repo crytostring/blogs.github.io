@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CentOS7-防火墙开启、关闭、以及查看防火墙状态命令, Kings">
+    <meta name="keywords" content="docker安装redis, Kings">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CentOS7-防火墙开启、关闭、以及查看防火墙状态命令 | Kings</title>
+    <title>docker安装redis | Kings</title>
     <link rel="icon" type="image/png" href="/blogs.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blogs.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CentOS7-防火墙开启、关闭、以及查看防火墙状态命令</h1>
+                    <h1 class="description center-align post-title">docker安装redis</h1>
                 </div>
             </div>
         </div>
@@ -431,23 +431,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blogs.github.io/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/blogs.github.io/tags/Docker-Redis/">
+                                <span class="chip bg-color">Docker,Redis</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/blogs.github.io/categories/Linux/" class="post-category">
-                                Linux
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -456,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-18
+                    2020-08-19
                 </div>
                 
 
@@ -465,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    111
                 </div>
                 
 
@@ -482,83 +473,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>查看防火墙状态</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl status firewalld
-● firewalld.service - firewalld - dynamic firewall daemon
-   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
-   Active: active (running) since Tue 2020-08-18 17:32:56 CST; 56s ago
-     Docs: man:firewalld(1)
- Main PID: 1607 (firewalld)
-    Tasks: 2
-   Memory: 28.1M
-   CGroup: /system.slice/firewalld.service
-           └─1607 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
+                <h1 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><pre class=" language-bash"><code class="language-bash">$ docker pull redis:6.0.6</code></pre>
+<h2 id="创建实例并启动"><a href="#创建实例并启动" class="headerlink" title="创建实例并启动"></a>创建实例并启动</h2><pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/conf
+$ <span class="token function">touch</span> /data/redis/conf/redis.conf
 
-Aug 18 17:32:56 localhost systemd[1]: Starting firewalld - dynamic firewall daemon...
-Aug 18 17:32:56 localhost systemd[1]: Started firewalld - dynamic firewall daemon.
-Aug 18 17:32:57 localhost firewalld[1607]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configur...t now.
-Hint: Some lines were ellipsized, use -l to show in full.</code></pre>
-<p><strong>开启防火墙</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl start firewalld</code></pre>
-<p><strong>关闭防火墙</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl stop firewalld</code></pre>
-<p><strong>查看已开放端口</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --list-all
-public (active)
-  target: default
-  icmp-block-inversion: no
-  interfaces: ens33
-  sources: 
-  services: dhcpv6-client ssh
-  ports: 
-  protocols: 
-  masquerade: no
-  forward-ports: 
-  source-ports: 
-  icmp-blocks: 
-  rich rules:</code></pre>
-<p><strong>防火墙开放端口：（开放端口后需重载防火墙）</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --add-port=3306/tcp --permanent
-success
-[root@localhost /]# firewall-cmd --reload
-success
-
-# 命令含义：
-–zone #作用域
-–add-port=80/tcp #添加端口，格式为：端口/通讯协议
-–permanent #永久生效，没有此参数重启后失效
-firewall-cmd --reload # 重载防火墙</code></pre>
-<p><strong>移除开放的端口</strong></p>
-<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --remove-port=80/tcp --permanent</code></pre>
-<p><strong>firewalld 基本使用</strong></p>
-<pre class=" language-shell"><code class="language-shell">firewalld的基本使用
-
-启动： systemctl start firewalld
-关闭： systemctl stop firewalld
-查看状态： systemctl status firewalld
-开机禁用 ： systemctl disable firewalld
-开机启用 ： systemctl enable firewall</code></pre>
-<p><strong>systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</strong></p>
-<pre class=" language-shell"><code class="language-shell">启动一个服务：systemctl start firewalld.service
-关闭一个服务：systemctl stop firewalld.service
-重启一个服务：systemctl restart firewalld.service
-显示一个服务的状态：systemctl status firewalld.service
-在开机时启用一个服务：systemctl enable firewalld.service
-在开机时禁用一个服务：systemctl disable firewalld.service
-查看服务是否开机启动：systemctl is-enabled firewalld.service
-查看已启动的服务列表：systemctl list-unit-files|grep enabled
-查看启动失败的服务列表：systemctl --failed</code></pre>
-<p><strong>配置firewalld-cmd</strong></p>
-<pre class=" language-shell"><code class="language-shell">查看版本： firewall-cmd --version
-查看帮助： firewall-cmd --help
-显示状态： firewall-cmd --state
-查看所有打开的端口： firewall-cmd --zone=public --list-ports
-更新防火墙规则： firewall-cmd --reload
-查看区域信息: firewall-cmd --get-active-zones
-查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0
-拒绝所有包：firewall-cmd --panic-on
-取消拒绝状态： firewall-cmd --panic-off
-查看是否拒绝： firewall-cmd --query-panic</code></pre>
+$ docker run -p 6379:6379 --name<span class="token operator">=</span>redis606 \
+-v /data/redis/conf/redis.conf:/etc/redis/redis.conf \
+-d redis:6.0.6 \
+redis-server \
+/etc/redis/redis.conf</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -602,7 +525,7 @@ firewall-cmd --reload # 重载防火墙</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/</a>
+                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -640,8 +563,8 @@ firewall-cmd --reload # 重载防火墙</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/blogs.github.io/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/blogs.github.io/tags/Docker-Redis/">
+                                    <span class="chip bg-color">Docker,Redis</span>
                                 </a>
                             
                         </div>
@@ -809,29 +732,34 @@ firewall-cmd --reload # 重载防火墙</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/18/hello-world/">
+                <a href="/blogs.github.io/2020/08/19/docker-an-zhuang-redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/blogs.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="docker安装redis">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">docker安装redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            Docker安装Redis下载镜像$ docker pull redis:6.0.6
+创建实例并启动$ mkdir -p /data/redis/conf
+$ touch /data/redis/conf/redis.conf
+
+$ doc
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -839,6 +767,15 @@ firewall-cmd --reload # 重载防火墙</code></pre>
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blogs.github.io/tags/Docker-Redis/">
+                        <span class="chip bg-color">Docker,Redis</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -850,29 +787,27 @@ firewall-cmd --reload # 重载防火墙</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/">
+                <a href="/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="CentOS7：ifconfig command not found解决和netstat -an">
+                        <img src="/blogs.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="Vagrant安装Linux虚拟机">
                         
-                        <span class="card-title">CentOS7：ifconfig command not found解决和netstat -an</span>
+                        <span class="card-title">Vagrant安装Linux虚拟机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            没有 ifconfig 和netstat -an 的话安装 net-tools package
-yum install net-tools
-检查端口被哪个进程占用
-netstat -lnp|grep 8000
-查看进程的详细信息
-ps 11
+                            Vagrant安装Linux虚拟机下载装vagrantvagrant官方镜像仓库
+https://app.vagrantup.com/boxes/search
+vagrant下载
+https://www.vagrantup.com/down
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
                             </span>
                         <span class="publish-author">
                             
@@ -885,8 +820,8 @@ ps 11
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blogs.github.io/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/blogs.github.io/tags/Linux-Vagrant/">
+                        <span class="chip bg-color">Linux,Vagrant</span>
                     </a>
                     
                 </div>

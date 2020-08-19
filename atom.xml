@@ -6,7 +6,7 @@
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/atom.xml" rel="self"/>
   
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/"/>
-  <updated>2020-08-19T03:44:51.098Z</updated>
+  <updated>2020-08-19T09:34:59.480Z</updated>
   <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>docker安装redis</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/</id>
+    <published>2020-08-19T09:28:37.000Z</published>
+    <updated>2020-08-19T09:34:59.480Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Docker安装Redis&quot;&gt;&lt;a href=&quot;#Docker安装Redis&quot; class=&quot;headerlink&quot; title=&quot;Docker安装Redis&quot;&gt;&lt;/a&gt;Docker安装Redis&lt;/h1&gt;&lt;h2 id=&quot;下载镜像&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Docker,Redis" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/tags/Docker-Redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vagrant安装Linux虚拟机</title>
     <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/"/>
     <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/</id>
     <published>2020-08-19T02:55:30.000Z</published>
-    <updated>2020-08-19T03:44:51.098Z</updated>
+    <updated>2020-08-19T09:22:03.247Z</updated>
     
     
       
@@ -137,7 +160,7 @@
     <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/"/>
     <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/</id>
     <published>2020-08-18T08:15:52.000Z</published>
-    <updated>2020-08-18T09:58:20.477Z</updated>
+    <updated>2020-08-19T09:29:03.886Z</updated>
     
     
       
@@ -147,7 +170,7 @@
     <summary type="html">&lt;ol&gt;
 &lt;li&gt;下载镜像文件&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker pull mysql:5.7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ docker pull mysql:5.7&lt;/code&gt;&lt;/pre&gt;
 &lt;ol</summary>
         
       
