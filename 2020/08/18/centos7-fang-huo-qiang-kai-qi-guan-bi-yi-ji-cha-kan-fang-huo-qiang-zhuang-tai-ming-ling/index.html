@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="alpine使用的避坑指南, Kings">
+    <meta name="keywords" content="CentOS7-防火墙开启、关闭、以及查看防火墙状态命令, Kings">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>alpine使用的避坑指南 | Kings</title>
+    <title>CentOS7-防火墙开启、关闭、以及查看防火墙状态命令 | Kings</title>
     <link rel="icon" type="image/png" href="/blogs.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blogs.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">alpine使用的避坑指南</h1>
+                    <h1 class="description center-align post-title">CentOS7-防火墙开启、关闭、以及查看防火墙状态命令</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/blogs.github.io/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blogs.github.io/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -452,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    641
+                    635
                 </div>
                 
 
@@ -469,40 +482,83 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="alpine使用的避坑指南"><a href="#alpine使用的避坑指南" class="headerlink" title="alpine使用的避坑指南"></a>alpine使用的避坑指南</h1><p>alpine，是一个重量仅为5 MB的最小Linux发行版。它还有基本的linux工具和一个不错的包管理器APK。APK非常稳定，有相当数量的包。由于体积小，在容器中很受欢迎，但是使用上坑也很多，大部分可能是我们的无知吧。</p>
-<h2 id="坑1-：-下载慢"><a href="#坑1-：-下载慢" class="headerlink" title="坑1 ： 下载慢"></a>坑1 ： 下载慢</h2><p>解决：</p>
-<pre><code>echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" &gt; /etc/apk/repositories \
-&amp;&amp; echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community" &gt;&gt; /etc/apk/repositories \
-&amp;&amp; echo "https://mirror.tuna.tsinghua.edu.cn/alpine/edge/testing" &gt;&gt; /etc/apk/repositories</code></pre>
-<h2 id="坑2：-找不到包"><a href="#坑2：-找不到包" class="headerlink" title="坑2： 找不到包"></a>坑2： 找不到包</h2><p>解决： 搜索 <a target="_blank" rel="noopener" href="https://pkgs.alpinelinux.org/packages">https://pkgs.alpinelinux.org/packages</a> ，加入指定的“Branch”和“Repository”的源到/etc/apk/repositories，就可以apk add</p>
-<h2 id="坑3：-安装失败"><a href="#坑3：-安装失败" class="headerlink" title="坑3： 安装失败"></a>坑3： 安装失败</h2><pre><code>ERROR: https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community: Bad file descriptor
-WARNING: Ignoring APKINDEX.79f426e4.tar.gz: Bad file descriptor
-ERROR: unsatisfiable constraints:
-  openssh (missing):
-    required by: world[openssh]</code></pre>
-<p>解决：</p>
-<pre><code>apk add  openssh --no-cache #加--no-cache, 另外，还能减少镜像体积</code></pre>
-<h2 id="坑4：镜像体积大，想删除不再使用的包"><a href="#坑4：镜像体积大，想删除不再使用的包" class="headerlink" title="坑4：镜像体积大，想删除不再使用的包"></a>坑4：镜像体积大，想删除不再使用的包</h2><p>apk add 加 -t 参数 </p>
-<p>-t, –virtual NAME Instead of adding all the packages to ‘world’, create a new virtual package with the listed dependencies and add that to ‘world’; the<br>actions of the command are easily reverted by deleting the virtual package<br>这意味着当您安装软件包时，这些软件包不会添加到全局软件包中。这种变化可以很容易地回滚/删除。所以，如果我需要gcc来编译程序，但是一旦程序被编译，我就不再需要gcc了。</p>
-<p>我可以在虚拟包中安装gcc和其他必需的包，并且可以删除所有依赖项，并删除此虚拟包名称。以下是示例用法</p>
-<p>apk add –virtual mypacks gcc vim<br>apk del mypacks<br>使用第一个命令安装的所有18个软件包将被下一个命令删除。</p>
-<p>注意：同一个-t参数会覆盖之前的所有安装包，所有对动态链接库最好不使用-t ,或者保证此参数不重复。</p>
-<h2 id="坑5：时间不同步"><a href="#坑5：时间不同步" class="headerlink" title="坑5：时间不同步"></a>坑5：时间不同步</h2><pre><code>echo "Asia/Shanghai" &gt; /etc/timezone
-apk add –no-cache tzdata
-TZ=Asia/Shanghai
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="坑6：用户（组）和宿主机不兼容"><a href="#坑6：用户（组）和宿主机不兼容" class="headerlink" title="坑6：用户（组）和宿主机不兼容"></a>坑6：用户（组）和宿主机不兼容</h2><p>解决：</p>
-<pre><code>addgroup -g 1200 -S www \
-     &amp;&amp; adduser -u 1200 -D -S -G www www</code></pre>
-<h2 id="坑7：不兼容glibc"><a href="#坑7：不兼容glibc" class="headerlink" title="坑7：不兼容glibc"></a>坑7：不兼容glibc</h2><p>解决：<br>使用最新稳定版本的alpine,</p>
-<pre><code>#再安装编译环境
-apk add --virtual .build-base --no-cache \
-autoconf \
-automake \
-g++ \
-make \
-linux-headers \
-bsd-compat-headers</code></pre>
+                <p><strong>查看防火墙状态</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl status firewalld
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
+   Active: active (running) since Tue 2020-08-18 17:32:56 CST; 56s ago
+     Docs: man:firewalld(1)
+ Main PID: 1607 (firewalld)
+    Tasks: 2
+   Memory: 28.1M
+   CGroup: /system.slice/firewalld.service
+           └─1607 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
+
+Aug 18 17:32:56 localhost systemd[1]: Starting firewalld - dynamic firewall daemon...
+Aug 18 17:32:56 localhost systemd[1]: Started firewalld - dynamic firewall daemon.
+Aug 18 17:32:57 localhost firewalld[1607]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configur...t now.
+Hint: Some lines were ellipsized, use -l to show in full.</code></pre>
+<p><strong>开启防火墙</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl start firewalld</code></pre>
+<p><strong>关闭防火墙</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl stop firewalld</code></pre>
+<p><strong>查看已开放端口</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: dhcpv6-client ssh
+  ports: 
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules:</code></pre>
+<p><strong>防火墙开放端口：（开放端口后需重载防火墙）</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --add-port=3306/tcp --permanent
+success
+[root@localhost /]# firewall-cmd --reload
+success
+
+# 命令含义：
+–zone #作用域
+–add-port=80/tcp #添加端口，格式为：端口/通讯协议
+–permanent #永久生效，没有此参数重启后失效
+firewall-cmd --reload # 重载防火墙</code></pre>
+<p><strong>移除开放的端口</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --remove-port=80/tcp --permanent</code></pre>
+<p><strong>firewalld 基本使用</strong></p>
+<pre class=" language-shell"><code class="language-shell">firewalld的基本使用
+
+启动： systemctl start firewalld
+关闭： systemctl stop firewalld
+查看状态： systemctl status firewalld
+开机禁用 ： systemctl disable firewalld
+开机启用 ： systemctl enable firewall</code></pre>
+<p><strong>systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</strong></p>
+<pre class=" language-shell"><code class="language-shell">启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl --failed</code></pre>
+<p><strong>配置firewalld-cmd</strong></p>
+<pre class=" language-shell"><code class="language-shell">查看版本： firewall-cmd --version
+查看帮助： firewall-cmd --help
+显示状态： firewall-cmd --state
+查看所有打开的端口： firewall-cmd --zone=public --list-ports
+更新防火墙规则： firewall-cmd --reload
+查看区域信息: firewall-cmd --get-active-zones
+查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0
+拒绝所有包：firewall-cmd --panic-on
+取消拒绝状态： firewall-cmd --panic-off
+查看是否拒绝： firewall-cmd --query-panic</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -546,7 +602,7 @@ bsd-compat-headers</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/</a>
+                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -583,7 +639,11 @@ bsd-compat-headers</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/blogs.github.io/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -753,54 +813,6 @@ bsd-compat-headers</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blogs.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="Vagrant安装Linux虚拟机">
-                        
-                        <span class="card-title">Vagrant安装Linux虚拟机</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Vagrant安装Linux虚拟机下载装vagrantvagrant官方镜像仓库
-https://app.vagrantup.com/boxes/search
-vagrant下载
-https://www.vagrantup.com/down
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            钟晓川
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blogs.github.io/tags/Linux-Vagrant/">
-                        <span class="chip bg-color">Linux,Vagrant</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/blogs.github.io/2020/08/18/hello-world/">
                     <div class="card-image">
                         
@@ -817,6 +829,48 @@ https://www.vagrantup.com/down
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            钟晓川
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blogs.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="CentOS7：ifconfig command not found解决和netstat -an">
+                        
+                        <span class="card-title">CentOS7：ifconfig command not found解决和netstat -an</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            没有 ifconfig 和netstat -an 的话安装 net-tools package
+yum install net-tools
+检查端口被哪个进程占用
+netstat -lnp|grep 8000
+查看进程的详细信息
+ps 11
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
                             </span>
@@ -827,6 +881,14 @@ https://www.vagrantup.com/down
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blogs.github.io/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>

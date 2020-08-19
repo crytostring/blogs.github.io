@@ -6,7 +6,7 @@
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/atom.xml" rel="self"/>
   
   <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/"/>
-  <updated>2020-08-18T15:05:03.841Z</updated>
+  <updated>2020-08-19T03:44:51.098Z</updated>
   <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vagrant安装Linux虚拟机</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/</id>
+    <published>2020-08-19T02:55:30.000Z</published>
+    <updated>2020-08-19T03:44:51.098Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Vagrant&quot;&gt;&lt;a href=&quot;#Vagrant&quot; class=&quot;headerlink&quot; title=&quot;Vagrant&quot;&gt;&lt;/a&gt;Vagrant&lt;/h1&gt;&lt;h2 id=&quot;安装Linux虚拟机&quot;&gt;&lt;a href=&quot;#安装Linux虚拟机&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux,Vagrant" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/tags/Linux-Vagrant/"/>
+    
+  </entry>
+  
+  <entry>
     <title>alpine使用的避坑指南</title>
     <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/"/>
     <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/</id>
     <published>2020-08-18T14:53:57.000Z</published>
-    <updated>2020-08-18T15:05:03.841Z</updated>
+    <updated>2020-08-18T15:04:59.000Z</updated>
     
     
       
@@ -41,8 +64,8 @@
     <title>Hello World</title>
     <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/hello-world/"/>
     <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/hello-world/</id>
-    <published>2020-08-18T13:52:47.905Z</published>
-    <updated>2020-08-18T13:52:47.905Z</updated>
+    <published>2020-08-18T13:54:09.927Z</published>
+    <updated>2020-08-18T13:52:47.000Z</updated>
     
     
       
@@ -55,6 +78,84 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7-防火墙开启、关闭、以及查看防火墙状态命令</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/</id>
+    <published>2020-08-18T09:27:39.000Z</published>
+    <updated>2020-08-18T09:45:46.094Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;查看防火墙状态&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;[root@localhost /]# systemctl status firewalld
+●</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7：ifconfig command not found解决和netstat -an</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/</id>
+    <published>2020-08-18T09:25:06.000Z</published>
+    <updated>2020-08-18T09:49:45.734Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;没有 ifconfig 和netstat -an 的话安装 net-tools package&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;yum</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker安装mysql</title>
+    <link href="https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/"/>
+    <id>https://crytostring.github.io/blogs.github.io/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/</id>
+    <published>2020-08-18T08:15:52.000Z</published>
+    <updated>2020-08-18T09:58:20.477Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;下载镜像文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker pull mysql:5.7&lt;/code&gt;&lt;/pre&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    
+    <category term="docker" scheme="https://crytostring.github.io/blogs.github.io/blogs.github.io/tags/docker/"/>
     
   </entry>
   

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Vagrant安装Linux虚拟机</title>
+      <link href="/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/"/>
+      <url>/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h1><h2 id="安装Linux虚拟机"><a href="#安装Linux虚拟机" class="headerlink" title="安装Linux虚拟机"></a>安装Linux虚拟机</h2><h3 id="下载装vagrant"><a href="#下载装vagrant" class="headerlink" title="下载装vagrant"></a>下载装vagrant</h3><p><strong>vagrant官方镜像仓库</strong></p><p><a href="https://app.vagrantup.com/boxes/search">https://app.vagrantup.com/boxes/search</a></p><p><strong>vagrant下载</strong></p><p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a></p><h3 id="初始化一个CentOS7系统"><a href="#初始化一个CentOS7系统" class="headerlink" title="初始化一个CentOS7系统"></a>初始化一个CentOS7系统</h3><p>打开命令行窗口，运行</p><pre class=" language-bash"><code class="language-bash">vagrant init centos/7</code></pre><h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><pre class=" language-bash"><code class="language-bash">vagrant up <span class="token comment" spellcheck="true"># 系统root用户的密码是vagrant</span></code></pre><h3 id="vagrant其他常用命令"><a href="#vagrant其他常用命令" class="headerlink" title="vagrant其他常用命令"></a>vagrant其他常用命令</h3><pre class=" language-bash"><code class="language-bash">vagrant <span class="token function">ssh</span> <span class="token comment" spellcheck="true"># 自动使用vagrant用户连接虚拟机</span>vagrant upload <span class="token function">source</span> <span class="token punctuation">[</span>description<span class="token punctuation">]</span> <span class="token punctuation">[</span>name<span class="token operator">|</span>id<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 上传文件</span></code></pre><p><a href="https://www.vagrantup.com/docs/cli/init.html">https://www.vagrantup.com/docs/cli/init.html</a> Vagrant命令行</p><h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>默认虚拟机的IP地址不是固定IP，修改Vagrantfile文件</p><pre class=" language-bash"><code class="language-bash">config.vm.network <span class="token string">"private_network"</span>, ip:<span class="token string">"192.168.58.10"</span></code></pre><p>这里的ip需要在物理机下使用ipconfig命令找到</p><h3 id="vagrant-up下载box慢的解决办法"><a href="#vagrant-up下载box慢的解决办法" class="headerlink" title="vagrant up下载box慢的解决办法"></a>vagrant up下载box慢的解决办法</h3><h4 id="即在运行vagrant-up时得到其的下载路径，如："><a href="#即在运行vagrant-up时得到其的下载路径，如：" class="headerlink" title="即在运行vagrant up时得到其的下载路径，如："></a>即在运行vagrant up时得到其的下载路径，如：</h4><pre class=" language-bash"><code class="language-bash">https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box</code></pre><p>然后直接在浏览器上访问该网址来下载该box</p><h4 id="先查看本地安装的box："><a href="#先查看本地安装的box：" class="headerlink" title="先查看本地安装的box："></a>先查看本地安装的box：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box list</code></pre><h4 id="再将得到的box文件手动添加进去："><a href="#再将得到的box文件手动添加进去：" class="headerlink" title="再将得到的box文件手动添加进去："></a>再将得到的box文件手动添加进去：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box add --name centos/7 /c/Users/Kings/Downloads/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box</code></pre><h4 id="然后再查看本地果然多了一个新的box："><a href="#然后再查看本地果然多了一个新的box：" class="headerlink" title="然后再查看本地果然多了一个新的box："></a>然后再查看本地果然多了一个新的box：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant box listcentos/7          <span class="token punctuation">(</span>virtualbox, 0<span class="token punctuation">)</span>laravel/homestead <span class="token punctuation">(</span>virtualbox, 9.5.1<span class="token punctuation">)</span>laravel/homestead <span class="token punctuation">(</span>vmware_desktop, 9.2.0<span class="token punctuation">)</span></code></pre><h4 id="然后再在相应vagrantfile对应的目录下运行vagrant-up即可运行起来了："><a href="#然后再在相应vagrantfile对应的目录下运行vagrant-up即可运行起来了：" class="headerlink" title="然后再在相应vagrantfile对应的目录下运行vagrant up即可运行起来了："></a>然后再在相应vagrantfile对应的目录下运行vagrant up即可运行起来了：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant up</code></pre><h4 id="然后使用vagrant-ssh即可进入："><a href="#然后使用vagrant-ssh即可进入：" class="headerlink" title="然后使用vagrant ssh即可进入："></a>然后使用vagrant ssh即可进入：</h4><pre class=" language-bash"><code class="language-bash">$ vagrant <span class="token function">ssh</span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux,Vagrant </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>alpine使用的避坑指南</title>
       <link href="/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/"/>
       <url>/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/</url>
@@ -24,6 +43,69 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS7-防火墙开启、关闭、以及查看防火墙状态命令</title>
+      <link href="/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/"/>
+      <url>/blogs.github.io/2020/08/18/centos7-fang-huo-qiang-kai-qi-guan-bi-yi-ji-cha-kan-fang-huo-qiang-zhuang-tai-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<p><strong>查看防火墙状态</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl status firewalld● firewalld.service - firewalld - dynamic firewall daemon   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)   Active: active (running) since Tue 2020-08-18 17:32:56 CST; 56s ago     Docs: man:firewalld(1) Main PID: 1607 (firewalld)    Tasks: 2   Memory: 28.1M   CGroup: /system.slice/firewalld.service           └─1607 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopidAug 18 17:32:56 localhost systemd[1]: Starting firewalld - dynamic firewall daemon...Aug 18 17:32:56 localhost systemd[1]: Started firewalld - dynamic firewall daemon.Aug 18 17:32:57 localhost firewalld[1607]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configur...t now.Hint: Some lines were ellipsized, use -l to show in full.</code></pre><p><strong>开启防火墙</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl start firewalld</code></pre><p><strong>关闭防火墙</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# systemctl stop firewalld</code></pre><p><strong>查看已开放端口</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --list-allpublic (active)  target: default  icmp-block-inversion: no  interfaces: ens33  sources:   services: dhcpv6-client ssh  ports:   protocols:   masquerade: no  forward-ports:   source-ports:   icmp-blocks:   rich rules:</code></pre><p><strong>防火墙开放端口：（开放端口后需重载防火墙）</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --add-port=3306/tcp --permanentsuccess[root@localhost /]# firewall-cmd --reloadsuccess# 命令含义：–zone #作用域–add-port=80/tcp #添加端口，格式为：端口/通讯协议–permanent #永久生效，没有此参数重启后失效firewall-cmd --reload # 重载防火墙</code></pre><p><strong>移除开放的端口</strong></p><pre class=" language-shell"><code class="language-shell">[root@localhost /]# firewall-cmd --zone=public --remove-port=80/tcp --permanent</code></pre><p><strong>firewalld 基本使用</strong></p><pre class=" language-shell"><code class="language-shell">firewalld的基本使用启动： systemctl start firewalld关闭： systemctl stop firewalld查看状态： systemctl status firewalld开机禁用 ： systemctl disable firewalld开机启用 ： systemctl enable firewall</code></pre><p><strong>systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</strong></p><pre class=" language-shell"><code class="language-shell">启动一个服务：systemctl start firewalld.service关闭一个服务：systemctl stop firewalld.service重启一个服务：systemctl restart firewalld.service显示一个服务的状态：systemctl status firewalld.service在开机时启用一个服务：systemctl enable firewalld.service在开机时禁用一个服务：systemctl disable firewalld.service查看服务是否开机启动：systemctl is-enabled firewalld.service查看已启动的服务列表：systemctl list-unit-files|grep enabled查看启动失败的服务列表：systemctl --failed</code></pre><p><strong>配置firewalld-cmd</strong></p><pre class=" language-shell"><code class="language-shell">查看版本： firewall-cmd --version查看帮助： firewall-cmd --help显示状态： firewall-cmd --state查看所有打开的端口： firewall-cmd --zone=public --list-ports更新防火墙规则： firewall-cmd --reload查看区域信息: firewall-cmd --get-active-zones查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0拒绝所有包：firewall-cmd --panic-on取消拒绝状态： firewall-cmd --panic-off查看是否拒绝： firewall-cmd --query-panic</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS7：ifconfig command not found解决和netstat -an</title>
+      <link href="/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/"/>
+      <url>/blogs.github.io/2020/08/18/centos7-ifconfig-command-not-found-jie-jue-he-netstat-an/</url>
+      
+        <content type="html"><![CDATA[<p><strong>没有 ifconfig 和netstat -an 的话安装 net-tools package</strong></p><pre class=" language-shell"><code class="language-shell">yum install net-tools</code></pre><p><strong>检查端口被哪个进程占用</strong></p><pre><code>netstat -lnp|grep 8000</code></pre><p><strong>查看进程的详细信息</strong></p><pre class=" language-shell"><code class="language-shell">ps 11100</code></pre><p><strong>杀掉进程</strong></p><pre class=" language-shell"><code class="language-shell">kill -9 11100</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker安装mysql</title>
+      <link href="/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/"/>
+      <url>/blogs.github.io/2020/08/18/docker-an-zhuang-mysql/</url>
+      
+        <content type="html"><![CDATA[<ol><li>下载镜像文件</li></ol><pre class=" language-shell"><code class="language-shell">docker pull mysql:5.7</code></pre><ol start="2"><li>创建实例并启动</li></ol><pre class=" language-shell"><code class="language-shell">docker run -p 3306:3306 --name=mysql57 \-v /data/mysql/log:/var/log/mysql \-v /data/mysql/data:/var/lib/mysql \-v /data/mysql/conf/:/etc/mysql \-e MYSQL_ROOT_PASSWORD=123456 \-d mysql:5.7参数说明-p 3306:3306 将容器的3306端口映射到主机的3306端口-v /data/mysql/log:/var/log/mysql 将配置文件夹挂载到主机-v /data/mysql/data:/var/lib/mysql 将日志文件夹挂载到主机-v /data/mysql/conf/:/etc/mysql 将配置文件夹挂载到主机</code></pre><ol start="3"><li><p>启动docker容器的时候报错</p><pre><code>[root@localhost /]# docker start mysql57Error response from daemon: driver failed programming external connectivity on endpoint mysql57 (3eb37c381ba5d0954c2cea6a635135474490a4fa07ba8f5343e6e41a18962df4):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 3306 -j DNAT --to-destination 172.17.0.2:3306 ! -i docker0: iptables: No chain/target/match by that name.(exit status 1))Error: failed to start containers: mysql57</code></pre></li><li><p>解决方法：重启docker</p><pre><code>systemctl restart docker</code></pre></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
       
     </entry>
     
