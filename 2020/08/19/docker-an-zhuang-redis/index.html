@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    111
+                    189
                 </div>
                 
 
@@ -477,11 +477,23 @@
 <h2 id="创建实例并启动"><a href="#创建实例并启动" class="headerlink" title="创建实例并启动"></a>创建实例并启动</h2><pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/conf
 $ <span class="token function">touch</span> /data/redis/conf/redis.conf
 
-$ docker run -p 6379:6379 --name<span class="token operator">=</span>redis606 \
+$ docker run -p 6379:6379 --name redis606 \
 -v /data/redis/conf/redis.conf:/etc/redis/redis.conf \
 -d redis:6.0.6 \
 redis-server \
 /etc/redis/redis.conf</code></pre>
+<pre><code>&lt;profile&gt;
+      &lt;id&gt;jdk-1.8&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;jdk&gt;1.8&lt;/jdk&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+      &lt;/activation&gt;
+      &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -732,34 +744,32 @@ redis-server \
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/19/docker-an-zhuang-redis/">
+                <a href="/blogs.github.io/2020/09/02/npm/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="docker安装redis">
+                        <img src="/blogs.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="npm">
                         
-                        <span class="card-title">docker安装redis</span>
+                        <span class="card-title">npm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker安装Redis下载镜像$ docker pull redis:6.0.6
-创建实例并启动$ mkdir -p /data/redis/conf
-$ touch /data/redis/conf/redis.conf
+                            设置npm淘宝镜像地址npm config set registry http://registry.npm.taobao.org
 
-$ doc
+        document.querySelectorAll('.github-emoji')
+  
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -768,12 +778,11 @@ $ doc
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blogs.github.io/tags/Docker-Redis/">
-                        <span class="chip bg-color">Docker,Redis</span>
+                    <a href="/blogs.github.io/tags/npm/">
+                        <span class="chip bg-color">npm</span>
                     </a>
                     
                 </div>
@@ -1028,7 +1037,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.4k</span>&nbsp;字
+                class="white-color">2.6k</span>&nbsp;字
             
             
             

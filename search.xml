@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>npm</title>
+      <link href="/blogs.github.io/2020/09/02/npm/"/>
+      <url>/blogs.github.io/2020/09/02/npm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="设置npm淘宝镜像地址"><a href="#设置npm淘宝镜像地址" class="headerlink" title="设置npm淘宝镜像地址"></a>设置npm淘宝镜像地址</h1><p>npm config set registry <a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker安装redis</title>
       <link href="/blogs.github.io/2020/08/19/docker-an-zhuang-redis/"/>
       <url>/blogs.github.io/2020/08/19/docker-an-zhuang-redis/</url>
       
-        <content type="html"><![CDATA[<h1 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><pre class=" language-bash"><code class="language-bash">$ docker pull redis:6.0.6</code></pre><h2 id="创建实例并启动"><a href="#创建实例并启动" class="headerlink" title="创建实例并启动"></a>创建实例并启动</h2><pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/conf$ <span class="token function">touch</span> /data/redis/conf/redis.conf$ docker run -p 6379:6379 --name<span class="token operator">=</span>redis606 \-v /data/redis/conf/redis.conf:/etc/redis/redis.conf \-d redis:6.0.6 \redis-server \/etc/redis/redis.conf</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><pre class=" language-bash"><code class="language-bash">$ docker pull redis:6.0.6</code></pre><h2 id="创建实例并启动"><a href="#创建实例并启动" class="headerlink" title="创建实例并启动"></a>创建实例并启动</h2><pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/conf$ <span class="token function">touch</span> /data/redis/conf/redis.conf$ docker run -p 6379:6379 --name redis606 \-v /data/redis/conf/redis.conf:/etc/redis/redis.conf \-d redis:6.0.6 \redis-server \/etc/redis/redis.conf</code></pre><pre><code>&lt;profile&gt;      &lt;id&gt;jdk-1.8&lt;/id&gt;      &lt;activation&gt;        &lt;jdk&gt;1.8&lt;/jdk&gt;        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;      &lt;/activation&gt;      &lt;properties&gt;        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;        &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;      &lt;/properties&gt;    &lt;/profile&gt;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
@@ -47,6 +66,19 @@
       <url>/blogs.github.io/2020/08/18/alpine-shi-yong-de-bi-keng-zhi-nan/</url>
       
         <content type="html"><![CDATA[<h1 id="alpine使用的避坑指南"><a href="#alpine使用的避坑指南" class="headerlink" title="alpine使用的避坑指南"></a>alpine使用的避坑指南</h1><p>alpine，是一个重量仅为5 MB的最小Linux发行版。它还有基本的linux工具和一个不错的包管理器APK。APK非常稳定，有相当数量的包。由于体积小，在容器中很受欢迎，但是使用上坑也很多，大部分可能是我们的无知吧。</p><h2 id="坑1-：-下载慢"><a href="#坑1-：-下载慢" class="headerlink" title="坑1 ： 下载慢"></a>坑1 ： 下载慢</h2><p>解决：</p><pre><code>echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" &gt; /etc/apk/repositories \&amp;&amp; echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community" &gt;&gt; /etc/apk/repositories \&amp;&amp; echo "https://mirror.tuna.tsinghua.edu.cn/alpine/edge/testing" &gt;&gt; /etc/apk/repositories</code></pre><h2 id="坑2：-找不到包"><a href="#坑2：-找不到包" class="headerlink" title="坑2： 找不到包"></a>坑2： 找不到包</h2><p>解决： 搜索 <a href="https://pkgs.alpinelinux.org/packages">https://pkgs.alpinelinux.org/packages</a> ，加入指定的“Branch”和“Repository”的源到/etc/apk/repositories，就可以apk add</p><h2 id="坑3：-安装失败"><a href="#坑3：-安装失败" class="headerlink" title="坑3： 安装失败"></a>坑3： 安装失败</h2><pre><code>ERROR: https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community: Bad file descriptorWARNING: Ignoring APKINDEX.79f426e4.tar.gz: Bad file descriptorERROR: unsatisfiable constraints:  openssh (missing):    required by: world[openssh]</code></pre><p>解决：</p><pre><code>apk add  openssh --no-cache #加--no-cache, 另外，还能减少镜像体积</code></pre><h2 id="坑4：镜像体积大，想删除不再使用的包"><a href="#坑4：镜像体积大，想删除不再使用的包" class="headerlink" title="坑4：镜像体积大，想删除不再使用的包"></a>坑4：镜像体积大，想删除不再使用的包</h2><p>apk add 加 -t 参数 </p><p>-t, –virtual NAME Instead of adding all the packages to ‘world’, create a new virtual package with the listed dependencies and add that to ‘world’; the<br>actions of the command are easily reverted by deleting the virtual package<br>这意味着当您安装软件包时，这些软件包不会添加到全局软件包中。这种变化可以很容易地回滚/删除。所以，如果我需要gcc来编译程序，但是一旦程序被编译，我就不再需要gcc了。</p><p>我可以在虚拟包中安装gcc和其他必需的包，并且可以删除所有依赖项，并删除此虚拟包名称。以下是示例用法</p><p>apk add –virtual mypacks gcc vim<br>apk del mypacks<br>使用第一个命令安装的所有18个软件包将被下一个命令删除。</p><p>注意：同一个-t参数会覆盖之前的所有安装包，所有对动态链接库最好不使用-t ,或者保证此参数不重复。</p><h2 id="坑5：时间不同步"><a href="#坑5：时间不同步" class="headerlink" title="坑5：时间不同步"></a>坑5：时间不同步</h2><pre><code>echo "Asia/Shanghai" &gt; /etc/timezoneapk add –no-cache tzdataTZ=Asia/Shanghailn -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre><h2 id="坑6：用户（组）和宿主机不兼容"><a href="#坑6：用户（组）和宿主机不兼容" class="headerlink" title="坑6：用户（组）和宿主机不兼容"></a>坑6：用户（组）和宿主机不兼容</h2><p>解决：</p><pre><code>addgroup -g 1200 -S www \     &amp;&amp; adduser -u 1200 -D -S -G www www</code></pre><h2 id="坑7：不兼容glibc"><a href="#坑7：不兼容glibc" class="headerlink" title="坑7：不兼容glibc"></a>坑7：不兼容glibc</h2><p>解决：<br>使用最新稳定版本的alpine,</p><pre><code>#再安装编译环境apk add --virtual .build-base --no-cache \autoconf \automake \g++ \make \linux-headers \bsd-compat-headers</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>alpine使用的避坑指南</title>
+      <link href="/blogs.github.io/2020/08/18/huan-jing-pei-zhi-git-ssh/"/>
+      <url>/blogs.github.io/2020/08/18/huan-jing-pei-zhi-git-ssh/</url>
+      
+        <content type="html"><![CDATA[<h3 id="配置ssh免密登录"><a href="#配置ssh免密登录" class="headerlink" title="配置ssh免密登录"></a>配置ssh免密登录</h3><p><a href="https://gitee.com/help/articles/4181#article-header0">https://gitee.com/help/articles/4181#article-header0</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
