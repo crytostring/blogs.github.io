@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker安装redis, Kings">
+    <meta name="keywords" content="VSCode-初次写vue项目并一键生成-vue模版, Kings">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>docker安装redis | Kings</title>
+    <title>VSCode-初次写vue项目并一键生成-vue模版 | Kings</title>
     <link rel="icon" type="image/png" href="/blogs.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blogs.github.io/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blogs.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">docker安装redis</h1>
+                    <h1 class="description center-align post-title">VSCode-初次写vue项目并一键生成-vue模版</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blogs.github.io/tags/Docker-Redis/">
-                                <span class="chip bg-color">Docker,Redis</span>
+                            <a href="/blogs.github.io/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-19
+                    2020-09-03
                 </div>
                 
 
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    189
+                    506
                 </div>
                 
 
@@ -473,27 +473,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><pre class=" language-bash"><code class="language-bash">$ docker pull redis:6.0.6</code></pre>
-<h2 id="创建实例并启动"><a href="#创建实例并启动" class="headerlink" title="创建实例并启动"></a>创建实例并启动</h2><pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> -p /data/redis/conf
-$ <span class="token function">touch</span> /data/redis/conf/redis.conf
-
-$ docker run -p 6379:6379 --name redis606 \
--v /data/redis/conf/redis.conf:/etc/redis/redis.conf \
--d redis:6.0.6 \
-redis-server \
-/etc/redis/redis.conf</code></pre>
-<pre><code>&lt;profile&gt;
-      &lt;id&gt;jdk-1.8&lt;/id&gt;
-      &lt;activation&gt;
-        &lt;jdk&gt;1.8&lt;/jdk&gt;
-        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-      &lt;/activation&gt;
-      &lt;properties&gt;
-        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-        &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;
-      &lt;/properties&gt;
-    &lt;/profile&gt;</code></pre>
+                <h1 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h1><p>官网下载地址</p>
+<pre><code>https://code.visualstudio.com/</code></pre>
+<h1 id="安装一个插件，识别vue文件"><a href="#安装一个插件，识别vue文件" class="headerlink" title="安装一个插件，识别vue文件"></a>安装一个插件，识别vue文件</h1><pre class=" language-undefined"><code class="language-undefined">插件库中搜索Vetur，下图中的第一个，点击安装，安装完成之后点击重新加载</code></pre>
+<h1 id="新建代码片段"><a href="#新建代码片段" class="headerlink" title="新建代码片段"></a>新建代码片段</h1><pre class=" language-rust"><code class="language-rust">文件<span class="token operator">-</span><span class="token punctuation">-></span>首选项<span class="token operator">-</span><span class="token punctuation">-></span>用户代码片段<span class="token operator">-</span><span class="token punctuation">-></span>点击新建代码片段<span class="token operator">-</span><span class="token operator">-</span>取名vue<span class="token punctuation">.</span>json 确定</code></pre>
+<p><img src="/blogs.github.io/blogs.github.io/blogs.github.io/2020/09/03/vscode-chu-ci-xie-vue-xiang-mu-bing-yi-jian-sheng-cheng-vue-mo-ban/Users\Kings\AppData\Roaming\Typora\typora-user-images\image-20200903144020921.png" alt="image-20200903144020921"></p>
+<h1 id="粘入自己写的-vue模板"><a href="#粘入自己写的-vue模板" class="headerlink" title="粘入自己写的.vue模板"></a>粘入自己写的.vue模板</h1><pre class=" language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"Print to console"</span><span class="token operator">:</span> &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token string">"vue"</span><span class="token punctuation">,</span>
+        <span class="token property">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"&lt;!-- $1 -->"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;template>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;div class='$2'>$5&lt;/div>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;/template>"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;script>"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 例如：import 《组件名称》 from '《组件路径》';"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"export default &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">"// import引入的组件需要注入到对象中才能使用"</span><span class="token punctuation">,</span>
+            <span class="token string">"components: &amp;#123;&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"data() &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 这里存放数据"</span><span class="token punctuation">,</span>
+            <span class="token string">"return &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;;"</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 监听属性 类似于data概念"</span><span class="token punctuation">,</span>
+            <span class="token string">"computed: &amp;#123;&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 监控data中的数据变化"</span><span class="token punctuation">,</span>
+            <span class="token string">"watch: &amp;#123;&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 方法集合"</span><span class="token punctuation">,</span>
+            <span class="token string">"methods: &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 生命周期 - 创建完成（可以访问当前this实例）"</span><span class="token punctuation">,</span>
+            <span class="token string">"created() &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"// 生命周期 - 挂载完成（可以访问DOM元素）"</span><span class="token punctuation">,</span>
+            <span class="token string">"mounted() &amp;#123;"</span><span class="token punctuation">,</span>
+            <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;,"</span><span class="token punctuation">,</span>
+            <span class="token string">"beforeCreate() &amp;#123;&amp;#125;, // 生命周期 - 创建之前"</span><span class="token punctuation">,</span>
+            <span class="token string">"beforeMount() &amp;#123;&amp;#125;, // 生命周期 - 挂载之前"</span><span class="token punctuation">,</span>
+            <span class="token string">"beforeUpdate() &amp;#123;&amp;#125;, // 生命周期 - 更新之前"</span><span class="token punctuation">,</span>
+            <span class="token string">"updated() &amp;#123;&amp;#125;, // 生命周期 - 更新之后"</span><span class="token punctuation">,</span>
+            <span class="token string">"beforeDestroy() &amp;#123;&amp;#125;, // 生命周期 - 销毁之前"</span><span class="token punctuation">,</span>
+            <span class="token string">"destroyed() &amp;#123;&amp;#125;, // 生命周期 - 销毁完成"</span><span class="token punctuation">,</span>
+            <span class="token string">"activated() &amp;#123;&amp;#125;, // 如果页面有keep-alive缓存功能，这个函数会触发"</span><span class="token punctuation">,</span>
+            <span class="token string">"&amp;#125;"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;/script>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;style lang='scss' scoped>"</span><span class="token punctuation">,</span>
+            <span class="token string">"// @import url($3); 引入公共css类"</span><span class="token punctuation">,</span>
+            <span class="token string">"$4"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;/style>"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Log output to console"</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p><strong>上面代码中的 “prefix”: “vue”, 就是快捷键；保存好之后，新建.vue结尾的文件试试</strong></p>
+<pre class=" language-undefined"><code class="language-undefined">输入vue 按键盘的tab就行</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -537,7 +578,7 @@ redis-server \
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/08/19/docker-an-zhuang-redis/</a>
+                    <a href="https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/09/03/vscode-chu-ci-xie-vue-xiang-mu-bing-yi-jian-sheng-cheng-vue-mo-ban/">https://crytostring.github.io/blogs.github.io/blogs.github.io/blogs.github.io/2020/09/03/vscode-chu-ci-xie-vue-xiang-mu-bing-yi-jian-sheng-cheng-vue-mo-ban/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,8 +616,8 @@ redis-server \
                     
                         <div class="article-tag">
                             
-                                <a href="/blogs.github.io/tags/Docker-Redis/">
-                                    <span class="chip bg-color">Docker,Redis</span>
+                                <a href="/blogs.github.io/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -744,32 +785,33 @@ redis-server \
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs.github.io/2020/09/02/npm/">
+                <a href="/blogs.github.io/2020/09/03/vscode-chu-ci-xie-vue-xiang-mu-bing-yi-jian-sheng-cheng-vue-mo-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="npm">
+                        <img src="/blogs.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="VSCode-初次写vue项目并一键生成-vue模版">
                         
-                        <span class="card-title">npm</span>
+                        <span class="card-title">VSCode-初次写vue项目并一键生成-vue模版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            设置npm淘宝镜像地址npm config set registry http://registry.npm.taobao.org
-
-        document.querySelectorAll('.github-emoji')
-  
+                            安装vscode官网下载地址
+https://code.visualstudio.com/
+安装一个插件，识别vue文件插件库中搜索Vetur，下图中的第一个，点击安装，安装完成之后点击重新加载
+新建代码片段文件-->首选项-->用户代码片
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -778,11 +820,12 @@ redis-server \
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blogs.github.io/tags/npm/">
-                        <span class="chip bg-color">npm</span>
+                    <a href="/blogs.github.io/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -796,27 +839,27 @@ redis-server \
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs.github.io/2020/08/19/vagrant-an-zhuang-linux-xu-ni-ji/">
+                <a href="/blogs.github.io/2020/09/03/photo/">
                     <div class="card-image">
                         
                         
-                        <img src="/blogs.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="Vagrant安装Linux虚拟机">
+                        <img src="/blogs.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="photo">
                         
-                        <span class="card-title">Vagrant安装Linux虚拟机</span>
+                        <span class="card-title">photo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vagrant安装Linux虚拟机下载装vagrantvagrant官方镜像仓库
-https://app.vagrantup.com/boxes/search
-vagrant下载
-https://www.vagrantup.com/down
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-03
                             </span>
                         <span class="publish-author">
                             
@@ -825,14 +868,6 @@ https://www.vagrantup.com/down
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blogs.github.io/tags/Linux-Vagrant/">
-                        <span class="chip bg-color">Linux,Vagrant</span>
-                    </a>
-                    
                 </div>
                 
             </div>

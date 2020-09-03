@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Kings">
+    <meta name="keywords" content="标签: vue, Kings">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | Kings</title>
+    <title>标签: vue | Kings</title>
     <link rel="icon" type="image/png" href="/blogs.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blogs.github.io/libs/awesome/css/all.css">
@@ -351,91 +351,111 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/blogs.github.io/categories/Linux/" title="Linux: 1">
+                <a href="/blogs.github.io/tags/Linux/" title="Linux: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">Linux
+                            data-tagname="Linux" style="background-color: #F9EBEA;">Linux
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/blogs.github.io/tags/vue/" title="vue: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="vue" style="background-color: #F5EEF8;">vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
+                
+                <a href="/blogs.github.io/tags/Linux-Vagrant/" title="Linux,Vagrant: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Linux,Vagrant" style="background-color: #D5F5E3;">Linux,Vagrant
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/blogs.github.io/tags/docker/" title="docker: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="docker" style="background-color: #E8F8F5;">docker
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/blogs.github.io/tags/Docker-Redis/" title="Docker,Redis: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Docker,Redis" style="background-color: #FEF9E7;">Docker,Redis
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/blogs.github.io/tags/npm/" title="npm: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="npm" style="background-color: #F8F9F9;">npm
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
-
-    
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/blogs.github.io/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
     
 
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"Linux","max":2}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-
-    
-
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="vue" data-aos="fade-up">
+                <div class="card">
+                    <a href="/blogs.github.io/2020/09/03/vscode-chu-ci-xie-vue-xiang-mu-bing-yi-jian-sheng-cheng-vue-mo-ban/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/blogs.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="VSCode-初次写vue项目并一键生成-vue模版">
+                            
+                            <span class="card-title">VSCode-初次写vue项目并一键生成-vue模版</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                钟晓川
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
